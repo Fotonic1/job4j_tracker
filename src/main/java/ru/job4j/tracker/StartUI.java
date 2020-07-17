@@ -27,13 +27,13 @@ public class StartUI {
                 System.out.println("=== Edit a Item ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                Item item = tracker.findById(id);
-                if (item != null) {
-                    System.out.print("Enter new name: ");
-                    item.setName(scanner.nextLine());
+                System.out.print("Enter new name: ");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
                     System.out.println("=== Edit completed ===");
                 } else {
-                    System.out.println("=== This id don't exist ===");
+                    System.out.println("=== Edit failed ===");
                 }
             } else if (select == 3) {
                 System.out.println("=== Delete a Item ====");
