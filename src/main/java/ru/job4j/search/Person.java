@@ -29,8 +29,4 @@ public class Person {
         return address;
     }
 
-    @Override
-    public String toString() {
-        return  name + ' ' + surname + ' ' + phone + ' ' + address;
-    }
 }
