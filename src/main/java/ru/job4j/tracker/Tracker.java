@@ -50,8 +50,7 @@ public class Tracker {
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
-            items.add(index,item);
-            items.remove(index+1);
+            items.set(index,item);
             rsl = true;
         }
         return rsl;
