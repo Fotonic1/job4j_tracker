@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
-public class Item {
+import ru.job4j.bank.User;
+
+import java.util.Objects;
+
+public class Item implements Comparable<Item> {
     private int id;
     private String name;
 
@@ -30,5 +34,23 @@ public class Item {
     public String toString() {
         return "id=" + id +
                 ", name=" + name;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return Integer.compare(id, o.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(name, item.name) && id == item.id;
     }
 }
