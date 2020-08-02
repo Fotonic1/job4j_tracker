@@ -11,7 +11,6 @@ public class StartUI {
         this.out = out;
     }
 
-
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
@@ -33,7 +32,6 @@ public class StartUI {
         }
     }
 
-
     public static void main(String[] args) {
         Tracker tracker = new Tracker();
         Output out = new ConsoleOutput();
@@ -48,4 +46,5 @@ public class StartUI {
         actions.add(new ExitAction());
         new StartUI(new ConsoleOutput()).init(input, tracker, actions);
     }
+
 }

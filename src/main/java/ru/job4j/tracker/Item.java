@@ -12,7 +12,9 @@ public class Item implements Comparable<Item> {
         this.name = name;
     }
 
-    public Item(){}
+    public Item() {
+
+    }
 
     public int getId() {
         return id;
@@ -32,8 +34,8 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", name=" + name;
+        return "id=" + id
+                + ", name=" + name;
     }
 
     @Override
@@ -48,8 +50,12 @@ public class Item implements Comparable<Item> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
         return Objects.equals(name, item.name) && id == item.id;
     }
