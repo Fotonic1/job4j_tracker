@@ -10,8 +10,8 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
 
-
 public class StartUITest {
+
     @Test
     public void whenCreateItem() {
         Input in = new StubInput(
@@ -63,7 +63,7 @@ public class StartUITest {
     public void whenFindAll() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","1"}
+                new String[] {"0", "1"}
         );
         Tracker tracker = new Tracker();
         Item item = new Item("New Item");
@@ -72,14 +72,14 @@ public class StartUITest {
         actions.add(new FindAllAction(out));
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Show all items" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator() +
-                        "id=1, name=New Item" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Show all items" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator()
+        assertThat(out.toString(),
+                is("Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
+                        + "id=1, name=New Item" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Show all items" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
         ));
     }
 
@@ -87,7 +87,7 @@ public class StartUITest {
     public void whenFindById() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","1","1"}
+                new String[] {"0", "1", "1"}
         );
         Tracker tracker = new Tracker();
         Item item = new Item("New Item");
@@ -97,13 +97,13 @@ public class StartUITest {
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Find item by id" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator() +
-                        "id=1, name=New Item" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Find item by id" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
+                        + "id=1, name=New Item" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Find item by id" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
         ));
     }
 
@@ -111,7 +111,7 @@ public class StartUITest {
     public void whenFindByName() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0","New Item","1"}
+                new String[] {"0", "New Item", "1"}
         );
         Tracker tracker = new Tracker();
         Item item = new Item("New Item");
@@ -121,13 +121,13 @@ public class StartUITest {
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Find item by name" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator() +
-                        "id=1, name=New Item" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Find item by name" + System.lineSeparator() +
-                        "1. Exit Program" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Find item by name" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
+                        + "id=1, name=New Item" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. Find item by name" + System.lineSeparator()
+                        + "1. Exit Program" + System.lineSeparator()
         ));
     }
 

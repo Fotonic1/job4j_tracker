@@ -7,8 +7,9 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class EnumTrackerTest {
+
     @Test
-    public void Enum() {
+    public void enum1() {
         assertTrue(EnumTracker.INSTANCE == EnumTracker.INSTANCE);
     }
 
