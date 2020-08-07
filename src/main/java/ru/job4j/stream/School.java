@@ -17,7 +17,6 @@ public class School {
                 .collect(Collectors.toMap(
                         Student::getSurname,
                         student -> student,
-                        (student, student2) ->
-                                student.getScore() > student2.getScore()? student: student2));
+                        (student, student2) -> student));
     }
 }
