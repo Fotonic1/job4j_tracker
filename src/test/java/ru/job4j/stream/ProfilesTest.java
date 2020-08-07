@@ -14,14 +14,14 @@ import static org.junit.Assert.*;
 public class ProfilesTest {
     @Test
     public void addressList() {
-       List<Profile> profiles = Arrays.asList(new Profile(
-               new Address("Samara", "Kirova", 50, 24)),
-        new Profile(
-                new Address("Samara", "Tolstogo", 50, 24)));
-       List<Address>  rsl= profiles.stream().map(Profile::getAddress).collect(Collectors.toList());
+       List<Profile> profiles = Arrays.asList
+               (new Profile(new Address("Samara", "Kirova", 50, 24)),
+               new Profile(new Address("Astrahan", "Tolstogo", 50, 24)),
+               new Profile(new Address("Astrahan", "Tolstogo", 50, 24)));
+       List<Address>  rsl= Profiles.collect(profiles);
         List<Address> expected = Arrays.asList(
-                        new Address("Samara", "Kirova", 50, 24),
-                        new Address("Samara", "Tolstogo", 50, 24));
+                        new Address("Astrahan", "Tolstogo", 50, 24),
+                        new Address("Samara", "Kirova", 50, 24));
         assertThat(rsl, is(expected));
     }
 }
