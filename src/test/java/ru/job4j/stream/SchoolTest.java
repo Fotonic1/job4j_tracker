@@ -5,7 +5,9 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -47,6 +49,18 @@ public class SchoolTest {
         Predicate<Student> predict = predict1.and(predict2);
         List<Student> rsl = School.collect(students, predict);
         List<Student> expected = Collections.singletonList(new Student("Petrov", 30));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void toMapTest() {
+        List<Student> students = Arrays.asList(new Student("Petrov", 30),
+                new Student("Ivanov", 60),
+                new Student("Smirnov", 70));
+        Map<String, Student> rsl = School.toMap(students);
+        Map<String, Student> expected = Map.of("Petrov", new Student("Petrov", 30),
+                "Ivanov", new Student("Ivanov", 60),
+                "Smirnov", new Student("Smirnov", 70));
         assertThat(rsl, is(expected));
     }
 }
