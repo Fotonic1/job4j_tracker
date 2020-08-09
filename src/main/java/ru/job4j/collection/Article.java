@@ -1,16 +1,21 @@
 package ru.job4j.collection;
 
-import java.util.stream.Collectors;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
 
 public class Article {
     public static boolean generateBy(String origin, String line) {
         boolean rsl = true;
-        List<String> words = Arrays.stream(line.split(" ")).distinct().collect(Collectors.toList());
+        HashMap<String,Integer> words = new HashMap<>();
         for (String word:
-                words) {
-            rsl = origin.contains(word) && rsl;
+                origin.split("\\b")) {
+                words.put(word, 1);
+        }
+        for (String word:
+                line.split(" ")) {
+            if (!words.containsKey(word)) {
+                rsl = false;
+                break;
+            }
         }
         return rsl;
     }

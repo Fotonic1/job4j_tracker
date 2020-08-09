@@ -25,6 +25,7 @@ public class FreezeStr {
             }
             else {
                 rsl = false;
+                break;
             }
         }
         return sim.isEmpty() && rsl;
