@@ -22,6 +22,7 @@ public class DepartmentsTest {
         List<String> result = Departments.fillGaps(input);
         assertThat(result, is(expect));
     }
+
     @Test
     public void whenDescSort() {
         List<String> input = List.of("k2/sk1", "k1/sk1");

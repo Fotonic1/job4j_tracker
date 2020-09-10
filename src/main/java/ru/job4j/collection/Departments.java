@@ -13,7 +13,7 @@ public class Departments {
                 tmp.add(start);
             }
         }
-        ArrayList <String> orgs = new ArrayList<>(tmp);
+        ArrayList<String> orgs = new ArrayList<>(tmp);
         return orgs;
     }
 
@@ -22,6 +22,6 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> orgs) {
-        Collections.sort(orgs,new DepDescComp());
+        Collections.sort(orgs, new DepDescComp());
     }
 }

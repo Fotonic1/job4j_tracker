@@ -13,6 +13,6 @@ public class MatrixToListTest {
         Integer[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         List<Integer> rsl = MatrixToList.toList(matrix);
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        assertThat(rsl,is(expected));
+        assertThat(rsl, is(expected));
     }
 }

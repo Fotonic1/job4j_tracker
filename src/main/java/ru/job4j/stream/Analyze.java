@@ -34,11 +34,11 @@ public class Analyze {
                 .flatMap(pupil -> pupil.getSubjects()
                         .stream())
                 .collect(Collectors
-                        .groupingBy(Subject::getName
-                                ,Collectors.averagingDouble(Subject::getScore)))
+                        .groupingBy(Subject::getName,
+                                Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
-                .map(e -> new Tuple(e.getKey(),e.getValue()))
+                .map(e -> new Tuple(e.getKey(), e.getValue()))
                 .collect(Collectors.toList());
     }
 
@@ -60,12 +60,12 @@ public class Analyze {
         return stream
                 .flatMap(pupil -> pupil.getSubjects()
                         .stream())
-                .collect(Collectors.toMap(Subject::getName
-                        , Subject::getScore
-                        , Integer::sum))
+                .collect(Collectors.toMap(Subject::getName,
+                        Subject::getScore,
+                        Integer::sum))
                 .entrySet()
                 .stream()
-                .map(e -> new Tuple(e.getKey(),e.getValue()))
+                .map(e -> new Tuple(e.getKey(), e.getValue()))
                 .max(Comparator.comparingDouble(Tuple::getScore))
                 .orElse(null);
     }
