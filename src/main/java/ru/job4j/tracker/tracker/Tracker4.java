@@ -1,21 +1,21 @@
 package ru.job4j.tracker.tracker;
 
-import ru.job4j.tracker.Tracker;
+import ru.job4j.tracker.MemTracker;
 
 public class Tracker4 {
 
     private Tracker4() {
     }
 
-    public static Tracker getInstance() {
+    public static MemTracker getInstance() {
         return Holder.INSTANCE;
     }
 
     private static final class Holder {
-        private static final Tracker INSTANCE = new Tracker();
+        private static final MemTracker INSTANCE = new MemTracker();
     }
 
     public static void main(String[] args) {
-        Tracker tracker = Tracker4.getInstance();
+        MemTracker tracker = Tracker4.getInstance();
     }
 }

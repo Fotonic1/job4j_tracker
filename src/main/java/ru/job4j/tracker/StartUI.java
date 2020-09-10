@@ -11,8 +11,9 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, List<UserAction> actions) {
+    public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
+        tracker.init();
         while (run) {
             this.showMenu(actions, out);
             int select = input.askInt("Select: ");
@@ -22,6 +23,12 @@ public class StartUI {
             }
             run = actions.get(select).execute(input, tracker);
         }
+        try {
+            tracker.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void showMenu(List<UserAction> actions, Output out) {
@@ -33,7 +40,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Tracker tracker = new Tracker();
+        Store tracker = new SqlTracker();
         Output out = new ConsoleOutput();
         Input input = new ValidateInput(out, new ConsoleInput());
         List<UserAction> actions = new ArrayList<>();
