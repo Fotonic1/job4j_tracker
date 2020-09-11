@@ -13,7 +13,6 @@ public class StartUI {
 
     public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
-        tracker.init();
         while (run) {
             this.showMenu(actions, out);
             int select = input.askInt("Select: ");
