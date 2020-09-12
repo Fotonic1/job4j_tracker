@@ -40,6 +40,26 @@ public class TrackerTest {
     }
 
     @Test
+    public void deleteItem() throws Exception {
+        try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
+            Item item = new Item("desc");
+            tracker.add(item);
+            tracker.delete(item.getId());
+            assertThat(tracker.findAll().size(), is(0));
+        }
+    }
+
+    @Test
+    public void replaceItem() throws Exception {
+        try (SqlTracker tracker = new SqlTracker(ConnectionRollback.create(this.init()))) {
+            Item item = new Item("desc");
+            tracker.add(item);
+            tracker.replace(item.getId(), new Item("desc2"));
+            assertThat(tracker.findByName("desc2").size(), is(1));
+        }
+    }
+
+    @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         MemTracker tracker = new MemTracker();
         Item item = new Item("test1");
